@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
     public float minimumY = -60F;
     public float maximumY = 60F;
 
+    bool restrictCamera;
+
     float rotationX = 0F;
     float rotationY = 0F;
 
@@ -32,6 +34,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (restrictCamera) return;
+
         transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (axes == RotationAxes.MouseXAndY)
         {
