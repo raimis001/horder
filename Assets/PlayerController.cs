@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody rb;
     public float speed;
-
-    private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        rb.AddForce(movement * speed);
+        float mH = Input.GetAxis("Horizontal");
+        float mV = Input.GetAxis("Vertical");
+        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
+    }
+    private void Update()
+    {
+        transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y, 0);
     }
 }
+
+

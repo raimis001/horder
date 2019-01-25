@@ -11,9 +11,9 @@ public class ShapeSpawner : MonoBehaviour
         InvokeRepeating("SpawnPrimitive", 0, 3);
     }
 
-    private void SpawnPrimitive(GameObject primitive)
+    private void SpawnPrimitive()
     {
-        GameObject currPrimitive = Instantiate(primitive);
+        GameObject currPrimitive = Instantiate(primitiveCube);
         Vector3 primitiveLocalScale = currPrimitive.transform.localScale; 
         currPrimitive.transform.localScale = ResizePrimitive();
         currPrimitive.name = "Primitive";

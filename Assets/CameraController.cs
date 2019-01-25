@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (axes == RotationAxes.MouseXAndY)
         {
             rotAverageY = 0f;
@@ -122,6 +123,9 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb)
             rb.freezeRotation = true;
