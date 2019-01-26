@@ -7,7 +7,7 @@ public class DedZone : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.layer != LayerMask.GetMask("MovableObjects")) return;
+		if (other.gameObject.layer != LayerMask.NameToLayer("MovableObjects")) return;
 
 		Destroy(other.gameObject, 1);
 	}

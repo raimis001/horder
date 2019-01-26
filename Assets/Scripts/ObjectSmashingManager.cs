@@ -21,7 +21,7 @@ public class ObjectSmashingManager : BaseItem
         if (GetComponent<Rigidbody>().velocity.magnitude <= 0.1f)
         {
             itemThrown = false;
-            Debug.Log("item has settled");
+            //Debug.Log("item has settled");
         }
     }
 
@@ -41,7 +41,7 @@ public class ObjectSmashingManager : BaseItem
         }
     }
 
-    private void SmashItemMesh(bool addExplosion)
+    public void SmashItemMesh(bool addExplosion)
     {
 
     }
