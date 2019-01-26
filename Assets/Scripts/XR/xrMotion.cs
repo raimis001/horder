@@ -43,14 +43,8 @@ public class xrMotion : MonoBehaviour
 		{
 			rigi.velocity = Vector3.zero;
 			rigi.angularVelocity = Vector3.zero;
-		}
-
-		if (transform.position.y < -0.5f)
-		{
-			move.y = 0;
-			Vector3 p = transform.position;
-			p.y = -0.5f;
-			transform.position = p;
+			CapsuleCollider coll = GetComponent<CapsuleCollider>();
+			coll.center = new Vector3(cameraMain.localPosition.x, coll.center.y, cameraMain.localPosition.z);
 		}
 
 		rigi.velocity = move * 50f;

@@ -64,5 +64,8 @@ public class ObjectItem : MonoBehaviour
 
 		return result;
 	}
-
+	private void OnCollisionEnter(Collision collision)
+	{
+		//Debug.Log("Collsion:" + collision.collider.name, collision.collider.gameObject);
+	}
 }
