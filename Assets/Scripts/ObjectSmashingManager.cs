@@ -41,11 +41,7 @@ public class ObjectSmashingManager : BaseItem
         }
     }
 
-<<<<<<< HEAD
-    protected void SmashItemMesh(bool addExplosion)
-=======
     public void SmashItemMesh(bool addExplosion)
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
     {
 
     }
