@@ -5,90 +5,44 @@ using UnityEngine;
 
 public class ObjectMover : BaseMotion
 {
-
-	Transform holdingPoint;
-	Transform heldObject;
-	RaycastHit hit;
-	CameraController camControl;
-	Rigidbody objRb;
-
 	[SerializeField] float interactDistance = 5f;
 	[SerializeField] float objRotateSpeed = 20f;
 	[SerializeField] LayerMask layerMask;
-	[SerializeField] KeyCode moveKey = KeyCode.F;
-	[SerializeField] KeyCode rotateKey = KeyCode.R;
-
-	bool canRotateXZ;
-    bool movingObj = false;
-
-    void Start()
-	{
-		camControl = GetComponent<CameraController>();
-		holdingPoint = new GameObject().transform;
-		holdingPoint.SetParent(PlayerController.instance.transform, false);
-	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(moveKey))
+		if (Input.GetMouseButtonDown(0))
 		{
-			if (heldObject)
-			{
-				//objRb.isKinematic = false;
-				objRb.useGravity = true;
-				movingObj = false;
-				heldObject = null;
-				objRb = null;
-				return;
-			}
-
-			if (!Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
+			if (takeObject)
 			{
 				return;
 			}
 
-			holdingPoint.position = hit.transform.position;
-
-			heldObject = hit.transform;
-			heldObject.SetParent(PlayerController.instance.transform);
-
-			objRb = heldObject.GetComponent<Rigidbody>();
-			//objRb.isKinematic = true;
-			objRb.useGravity = false;
-			movingObj = true;
-
-			ObjectItem item = heldObject.GetComponent<ObjectItem>();
-			if (!item)
+			if (!Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask))
 			{
-				canRotateXZ = true;
 				return;
 			}
 
-			canRotateXZ = item.canRotateXZ;
+			takeObject = hit.transform.gameObject;
+			takeObject.GetComponent<Rigidbody>().useGravity = false;
+			takeObject.transform.SetParent(Camera.main.transform);
+
 			return;
 		}
 
-		if (!movingObj) return;
+		if (!takeObject) return;
 
-		//heldObject.position = holdingPoint.position;
-
-		float rotY;
-		if (Input.GetKeyDown(rotateKey))
+		if (Input.GetMouseButtonUp(0))
 		{
-
-			camControl.restrictCamera = true;
-			
-			float rotX = objRotateSpeed * Input.GetAxis("Mouse Y");
-			rotY = objRotateSpeed * Input.GetAxis("Mouse X");
-			heldObject.Rotate(Vector3.up, -rotY, Space.World);
-			if (canRotateXZ)
-				heldObject.Rotate(transform.right, rotX, Space.World);
-			return;
+			takeObject.transform.SetParent(null);
+			Throw();
 		}
 
-		camControl.restrictCamera = false;
-		rotY = camControl.sensitivityX * Input.GetAxisRaw("Mouse X");
-		heldObject.Rotate(Vector3.up, rotY, Space.World);
+		if (Input.GetMouseButton(2))
+		{
+			Rotate(new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y")) * objRotateSpeed);
+			return;
+		}
 
 	}
 
@@ -103,10 +57,5 @@ public class ObjectMover : BaseMotion
 
 	public void Destroy(ObjectItem item)
 	{
-		if (objRb) objRb.isKinematic = false;
-		movingObj = false;
-		heldObject = null;
-		objRb = null;
-
 	}
 }
