@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
 	public void CheckOrder()
 	{
-		ObjectItem[] items = orderLayer.GetComponentsInChildren<ObjectItem>();
+		//ObjectItem[] items = orderLayer.GetComponentsInChildren<ObjectItem>();
+		ObjectItem[] items = GameObject.FindObjectsOfType<ObjectItem>();
 
 		int notInOrder = 0;
 		foreach (ObjectItem item in items)

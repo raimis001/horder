@@ -13,6 +13,9 @@ public class xrHand : MonoBehaviour
 		Phone, Rock, Natural, Number3, Number4, Number3V2
 	}
 
+	public static xrHand RightHand;
+	public static xrHand LeftHand;
+
 	public HandKind kind;
 	public Transform takePoint;
 	public LayerMask objectLayer;
@@ -29,6 +32,7 @@ public class xrHand : MonoBehaviour
 	string touchpadX;
 	string touchpadY;
 	string touchpad;
+	string menupad;
 
 	internal Ray ray
 	{
@@ -44,8 +48,9 @@ public class xrHand : MonoBehaviour
 		touchpadX = kind == HandKind.Left ? "LeftTouchX" : "RightTouchX";
 		touchpadY = kind == HandKind.Left ? "LeftTouchY" : "RightTouchY";
 		touchpad = kind == HandKind.Left ? "joystick button 16" : "joystick button 17";
-
-
+		menupad = kind == HandKind.Left ? "joystick button 6" : "joystick button 7";
+		if (kind == HandKind.Left) LeftHand = this;
+		if (kind == HandKind.Right) RightHand = this;
 	}
 
 	private void Update()
@@ -61,6 +66,7 @@ public class xrHand : MonoBehaviour
 			takeParent = takeItem.transform.parent;
 			takeItem.transform.SetParent(transform);
 			takeItem.GetComponent<Rigidbody>().isKinematic = true;
+			Play(HandAnims.GrabSmall);
 			return;
 		}
 
@@ -72,6 +78,7 @@ public class xrHand : MonoBehaviour
 			takeItem.GetComponent<Rigidbody>().isKinematic = false;
 			takeItem = null;
 			takeParent = null;
+			Play(HandAnims.Natural);
 			return;
 		}
 
@@ -115,6 +122,7 @@ public class xrHand : MonoBehaviour
 			takeItem = null;
 			takeParent = null;
 		}
+		Play(HandAnims.Natural);
 	}
 
 	#endregion
@@ -161,6 +169,20 @@ public class xrHand : MonoBehaviour
 		//Debug.Log(result);
 		return result;
 
+	}
+
+	public bool MenuDown()
+	{
+		return Input.GetKeyDown(menupad);
+	}
+	public bool MenuUp()
+	{
+		return Input.GetKeyUp(menupad);
+	}
+
+	public bool MenuKey()
+	{
+		return Input.GetKey(menupad);
 	}
 
 	#endregion

@@ -31,6 +31,17 @@ public class xrStarter : MonoBehaviour
 		if (XRSettings.enabled) SetCameraHeight();
 	}
 
+	private void Update()
+	{
+		if (!XRSettings.enabled) return;
+
+		if (xrHand.LeftHand.MenuDown())
+		{
+			SetCameraHeight();
+		}
+
+	}
+
 	void SetCameraHeight()
 	{
 		float cameraYOffset = cameraOffset;
