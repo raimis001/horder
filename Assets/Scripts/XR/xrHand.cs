@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class xrHand : BaseMotion
 {
 	enum HandAnims
@@ -17,8 +15,8 @@ public class xrHand : BaseMotion
 	public static xrHand LeftHand;
 
 	public HandKind kind;
-	public Transform takePoint;
 	public LayerMask objectLayer;
+	public Transform takePoint;
 
 	[Range(0,5)]
 	public float rotateSpeed = 1;
@@ -26,15 +24,10 @@ public class xrHand : BaseMotion
 	private Animator anim;
 	private HandAnims animState;
 
-	private ObjectItem takeItem;
-	private Transform takeParent;
-
 	string touchpadX;
 	string touchpadY;
 	string touchpad;
 	string menupad;
-
-	Vector3 oldPosition;
 
 	internal Ray ray
 	{
@@ -59,35 +52,23 @@ public class xrHand : BaseMotion
 	{
 		if (TriggerDown())
 		{
-			//Debug.Log("Trigger down");
 
 			if (!Physics.Raycast(ray, out RaycastHit hit, 1, objectLayer)) return;
-			takeItem = hit.transform.GetComponent<ObjectItem>();
-			if (!takeItem) return;
 
-			takeParent = takeItem.transform.parent;
-			takeItem.transform.SetParent(transform);
-			//takeItem.GetComponent<Rigidbody>().isKinematic = true;
-			takeItem.GetComponent<Rigidbody>().useGravity = false;
+			takeObject = hit.collider.gameObject;
+			takeObject.transform.SetParent(transform);
+			takeObject.GetComponent<Rigidbody>().useGravity = false;
 			Play(HandAnims.GrabSmall);
 			return;
 		}
 
-		if (!takeItem) return;
+		if (!takeObject) return;
 	
 
 		if (TriggerUp())
 		{
-			takeItem.transform.SetParent(takeParent);
-			Vector3 dir = takeItem.transform.position - oldPosition;
-
-			Rigidbody rigi = takeItem.GetComponent<Rigidbody>();
-			//rigi.isKinematic = false;
-			rigi.useGravity = true;
-			rigi.AddForce(dir * 100, ForceMode.Impulse);
-
-			takeItem = null;
-			takeParent = null;
+			takeObject.transform.SetParent(null);
+			Throw();
 			Play(HandAnims.Natural);
 			return;
 		}
@@ -95,21 +76,11 @@ public class xrHand : BaseMotion
 		if (TouchpadKey())
 		{
 			Vector2 t = Touchpad() * rotateSpeed;
-
-			float rotX = t.y;
-			float rotY = t.x;
-			takeItem.transform.Rotate(Vector3.up, -rotY, Space.World);
-			takeItem.transform.Rotate(transform.right, -rotX, Space.World);
-
+			Rotate(new Vector3(t.x, 0, t.y));
 		}
-		oldPosition = takeItem.transform.position;
 	}
 
-	private void FixedUpdate()
-	{
-		if (!takeItem) return;
-		//oldPosition = takeItem.transform.position;
-	}
+	
 
 	private void Play(HandAnims trigger = HandAnims.Natural)
 	{
@@ -120,27 +91,6 @@ public class xrHand : BaseMotion
 		anim.SetTrigger(trigger.ToString());
 	}
 
-	#region EVENTS
-	private void OnEnable()
-	{
-		ObjectAccepter.OnDeleteItem += OnDelete;
-	}
-	private void OnDisable()
-	{
-		ObjectAccepter.OnDeleteItem -= OnDelete;
-	}
-	private void OnDelete(ObjectItem item)
-	{
-		if (takeItem)
-		{
-			takeItem.transform.SetParent(takeParent);
-			takeItem.GetComponent<Rigidbody>().isKinematic = false;
-			takeItem = null;
-			takeParent = null;
-		}
-		Play(HandAnims.Natural);
-	}
-	#endregion
 
 	#region INPUT
 
