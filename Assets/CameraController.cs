@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     public float minimumY = -60F;
     public float maximumY = 60F;
 
-    bool restrictCamera;
+    public bool restrictCamera;
 
     float rotationX = 0F;
     float rotationY = 0F;
