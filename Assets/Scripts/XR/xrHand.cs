@@ -67,7 +67,8 @@ public class xrHand : MonoBehaviour
 
 			takeParent = takeItem.transform.parent;
 			takeItem.transform.SetParent(transform);
-			takeItem.GetComponent<Rigidbody>().isKinematic = true;
+			//takeItem.GetComponent<Rigidbody>().isKinematic = true;
+			takeItem.GetComponent<Rigidbody>().useGravity = false;
 			Play(HandAnims.GrabSmall);
 			return;
 		}
@@ -81,7 +82,8 @@ public class xrHand : MonoBehaviour
 			Vector3 dir = takeItem.transform.position - oldPosition;
 
 			Rigidbody rigi = takeItem.GetComponent<Rigidbody>();
-			rigi.isKinematic = false;
+			//rigi.isKinematic = false;
+			rigi.useGravity = true;
 			rigi.AddForce(dir * 100, ForceMode.Impulse);
 
 			takeItem = null;

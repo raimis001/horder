@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public static PlayerController instance;
+
 	Rigidbody rb;
 	public float speed;
 	public float jumpSpeed = 2;
+
+	private void Awake()
+	{
+		instance = this;
+	}
 
 	void Start()
 	{

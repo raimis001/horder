@@ -17,7 +17,7 @@ public class ObjectItem : MonoBehaviour
 
  public bool IsInplace()
 	{
-		if (GetComponent<Rigidbody>().isKinematic) return false;
+		if (!GetComponent<Rigidbody>().useGravity) return false;
 
 		if (kind == ObjectKind.Table)
 		{

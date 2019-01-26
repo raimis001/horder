@@ -25,7 +25,7 @@ public class ObjectMover : MonoBehaviour
 	{
 		camControl = GetComponent<CameraController>();
 		holdingPoint = new GameObject().transform;
-		holdingPoint.SetParent(transform, false);
+		holdingPoint.SetParent(PlayerController.instance.transform, false);
 	}
 
 	void Update()
@@ -34,7 +34,8 @@ public class ObjectMover : MonoBehaviour
 		{
 			if (heldObject)
 			{
-				objRb.isKinematic = false;
+				//objRb.isKinematic = false;
+				objRb.useGravity = true;
 				movingObj = false;
 				heldObject = null;
 				objRb = null;
@@ -47,9 +48,13 @@ public class ObjectMover : MonoBehaviour
 			}
 
 			holdingPoint.position = hit.transform.position;
+
 			heldObject = hit.transform;
+			heldObject.SetParent(PlayerController.instance.transform);
+
 			objRb = heldObject.GetComponent<Rigidbody>();
-			objRb.isKinematic = true;
+			//objRb.isKinematic = true;
+			objRb.useGravity = false;
 			movingObj = true;
 
 			ObjectItem item = heldObject.GetComponent<ObjectItem>();
@@ -65,7 +70,7 @@ public class ObjectMover : MonoBehaviour
 
 		if (!movingObj) return;
 
-		heldObject.position = holdingPoint.position;
+		//heldObject.position = holdingPoint.position;
 
 		float rotY;
 		if (Input.GetKeyDown(rotateKey))
