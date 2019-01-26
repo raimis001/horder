@@ -13,21 +13,21 @@ public class BaseMotion : MonoBehaviour
     [SerializeField] protected float throwStrength;
     [SerializeField] protected Image throwStrImg;
 
-    protected void Rotate(Vector3 delta)
+	protected void Rotate(Vector3 delta)
 	{
-        pickedUpObject.transform.Rotate(Vector3.up, -delta.z, Space.World);
-        pickedUpObject.transform.Rotate(transform.right, delta.x, Space.World);      
+		pickedUpObject.transform.Rotate(Vector3.up, -delta.z, Space.World);
+		pickedUpObject.transform.Rotate(transform.right, delta.x, Space.World);
 	}
 
 	protected void Throw()
 	{
-        pickedUpObject.GetComponent<BaseItem>().itemThrown = true;
-        pickedUpObject.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2 * (throwStrength * 10), ForceMode.Impulse);
+		pickedUpObject.GetComponent<BaseItem>().itemThrown = true;
+		pickedUpObject.GetComponent<BaseItem>().itemPicked = false;
 
-        pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
+		pickedUpObject.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2 * (throwStrength * 10), ForceMode.Impulse);
 
-        pickedUpObject = null;
+		pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+		pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
 
         if(throwStrength > 0.1)
         {
@@ -35,22 +35,24 @@ public class BaseMotion : MonoBehaviour
             throwSoundSource.PlayDelayed(0.1f);
         }
 
-        throwStrength = 0;
-        throwStrImg.fillAmount = 0;
+		pickedUpObject = null;
 
-    }
+		throwStrength = 0;
+		throwStrImg.fillAmount = 0;
+	}
 
-    protected void PickupItem(GameObject pickedUpItem)
-    {
-        pickedUpObject = pickedUpItem;
+	protected void PickupItem(GameObject pickedUpItem)
+	{
+		pickedUpObject = pickedUpItem;
 
-        pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+		pickedUpObject.GetComponent<BaseItem>().itemPicked = true;
+		pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+		pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+		pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 
         //Debug.Log("play pickup sound");
         pickupSoundSource.Play();
 
-    }
+	}
 }
