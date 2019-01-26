@@ -11,17 +11,17 @@ public class ObjectMover : MonoBehaviour
 	RaycastHit hit;
 	CameraController camControl;
 	Rigidbody objRb;
-	bool movingObj = false;
 
-	public float interactDistance = 5f;
-	public float objRotateSpeed = 20f;
-	public LayerMask layerMask;
-	public KeyCode moveKey = KeyCode.F;
-	public KeyCode rotateKey = KeyCode.R;
+	[SerializeField] float interactDistance = 5f;
+	[SerializeField] float objRotateSpeed = 20f;
+	[SerializeField] LayerMask layerMask;
+	[SerializeField] KeyCode moveKey = KeyCode.F;
+	[SerializeField] KeyCode rotateKey = KeyCode.R;
 
-	private bool canRotateXZ;
+	bool canRotateXZ;
+    bool movingObj = false;
 
-	void Start()
+    void Start()
 	{
 		camControl = GetComponent<CameraController>();
 		holdingPoint = new GameObject().transform;
@@ -68,7 +68,7 @@ public class ObjectMover : MonoBehaviour
 		heldObject.position = holdingPoint.position;
 
 		float rotY;
-		if (Input.GetKey(rotateKey))
+		if (Input.GetKeyDown(rotateKey))
 		{
 
 			camControl.restrictCamera = true;
