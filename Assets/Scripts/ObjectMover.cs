@@ -2,69 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectMover : MonoBehaviour {
 
-    Transform holdingPoint;
-    Transform heldObject;
-    RaycastHit hit;
-    CameraController camControl;
-    Rigidbody objRb;
-    bool movingObj = false;
+public class ObjectMover : MonoBehaviour
+{
 
-    public float interactDistance = 5f;
-    public float objRotateSpeed = 20f;
-    public LayerMask layerMask;
-    public KeyCode moveKey = KeyCode.F;
-    public KeyCode rotateKey = KeyCode.R;
+	Transform holdingPoint;
+	Transform heldObject;
+	RaycastHit hit;
+	CameraController camControl;
+	Rigidbody objRb;
+	bool movingObj = false;
 
-    void Start ()
-    {
-        camControl = GetComponent<CameraController>();
-        holdingPoint = new GameObject().transform;
-        holdingPoint.SetParent(transform, false);
+	public float interactDistance = 5f;
+	public float objRotateSpeed = 20f;
+	public LayerMask layerMask;
+	public KeyCode moveKey = KeyCode.F;
+	public KeyCode rotateKey = KeyCode.R;
+
+	private bool canRotateXZ;
+
+	void Start()
+	{
+		camControl = GetComponent<CameraController>();
+		holdingPoint = new GameObject().transform;
+		holdingPoint.SetParent(transform, false);
 	}
 
-	void Update ()
-    {
-        if (Input.GetKeyDown(moveKey))
-        {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
-            {
-                holdingPoint.position = hit.transform.position;
-                heldObject = hit.transform;
-                objRb = hit.transform.GetComponent<Rigidbody>();
-            }
-            if (!movingObj)
-            {
-                objRb.isKinematic = true;
-                movingObj = true;
-            }
-            else
-            {
-                objRb.isKinematic = false;
-                movingObj = false;
-            }
-        }
+	void Update()
+	{
+		if (Input.GetKeyDown(moveKey))
+		{
+			if (heldObject)
+			{
+				objRb.isKinematic = false;
+				movingObj = false;
+				heldObject = null;
+				objRb = null;
+				return;
+			}
 
-        if (movingObj)
-        {
-            heldObject.position = holdingPoint.position;
+			if (!Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
+			{
+				return;
+			}
 
-            if (Input.GetKey(rotateKey))
-            {
+			holdingPoint.position = hit.transform.position;
+			heldObject = hit.transform;
+			objRb = heldObject.GetComponent<Rigidbody>();
+			objRb.isKinematic = true;
+			movingObj = true;
 
-                camControl.restrictCamera = true;
-                float rotX = objRotateSpeed * Input.GetAxis("Mouse Y");
-                float rotY = objRotateSpeed * Input.GetAxis("Mouse X");
-                heldObject.Rotate(Vector3.up, -rotY, Space.World);
-                heldObject.Rotate(transform.right, rotX, Space.World);
-            }
-            else
-            {
-                camControl.restrictCamera = false;
-                float rotY = camControl.sensitivityX * Input.GetAxisRaw("Mouse X");
-                heldObject.Rotate(Vector3.up, rotY, Space.World);
-            }
-        }
-    }
+			ObjectItem item = heldObject.GetComponent<ObjectItem>();
+			if (!item)
+			{
+				canRotateXZ = true;
+				return;
+			}
+
+			canRotateXZ = item.canRotateXZ;
+			return;
+		}
+
+		if (!movingObj) return;
+
+		heldObject.position = holdingPoint.position;
+
+		float rotY;
+		if (Input.GetKey(rotateKey))
+		{
+
+			camControl.restrictCamera = true;
+			
+			float rotX = objRotateSpeed * Input.GetAxis("Mouse Y");
+			rotY = objRotateSpeed * Input.GetAxis("Mouse X");
+			heldObject.Rotate(Vector3.up, -rotY, Space.World);
+			if (canRotateXZ)
+				heldObject.Rotate(transform.right, rotX, Space.World);
+			return;
+		}
+
+		camControl.restrictCamera = false;
+		rotY = camControl.sensitivityX * Input.GetAxisRaw("Mouse X");
+		heldObject.Rotate(Vector3.up, rotY, Space.World);
+
+	}
+
+	public void Destroy()
+	{
+		if (objRb) objRb.isKinematic = false;
+		movingObj = false;
+		heldObject = null;
+		objRb = null;
+
+	}
 }

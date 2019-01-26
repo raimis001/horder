@@ -18,9 +18,9 @@ public class Spawner : MonoBehaviour
 	// Update is called once per frame
 	void SpawnPrimitive()
 	{
-		Vector3 pos = new Vector3(Random.Range(1f, 6f), transform.position.y, Random.Range(1f, 4f));
+		Vector3 pos = new Vector3(Random.Range(1f, 4f), transform.position.y, Random.Range(1f, 6f));
 		int prfab = Random.Range(0, spawnPrefabs.Length);
 
-		Instantiate(spawnPrefabs[prfab], pos, Quaternion.identity);
+		Instantiate(spawnPrefabs[prfab], pos, Quaternion.identity,transform);
 	}
 }
