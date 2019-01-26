@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-    public bool itemThrown;
+    internal bool itemThrown;
+	internal bool itemPicked;
 
-    protected virtual void ExplodeItem()
+	protected virtual void ExplodeItem()
     {
 
     }
