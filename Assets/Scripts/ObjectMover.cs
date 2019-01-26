@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectMover : BaseMotion
 {
@@ -7,6 +8,7 @@ public class ObjectMover : BaseMotion
 
 	[SerializeField] LayerMask layerMask;
     [SerializeField] Transform playerHand;
+
 
 
 
@@ -39,6 +41,28 @@ public class ObjectMover : BaseMotion
 			Rotate(new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y")) * objRotateSpeed);
 			return;
 		}
+
+        if (base.pickedUpObject)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                throwStrength += 0.1f;
+                if(throwStrength > 1)
+                {
+                    throwStrength = 1;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                throwStrength -= 0.1f;
+                if(throwStrength < 0)
+                {
+                    throwStrength = 0;
+                }
+            }
+
+            throwStrImg.fillAmount = throwStrength;
+        }
 	}
 
     private void FixedUpdate()
