@@ -1,105 +1,21 @@
 fileFormatVersion: 2
-guid: bd3b8d54a5400ac4f92ef1a6392d0ebe
+guid: 2a94bbd520ab45b4bba1bcd91d01bfa3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Atslegas
-    100002: DatoraKomplekts
-    100004: Dators
-    100006: Divans
-    100008: FotoRamis
-    100010: Klaviatura
-    100012: Kresls01
-    100014: Kresls02
-    100016: Kresls03
-    100018: Kruze
-    100020: Miskaste
-    100022: Monitors
-    100024: Nauda
-    100026: Pase
-    100028: Pele
-    100030: Skivis
-    100032: Stavlampa
-    100034: Telefons
-    100036: TraukuMasina
-    100038: //RootNode
-    400000: Atslegas
-    400002: DatoraKomplekts
-    400004: Dators
-    400006: Divans
-    400008: FotoRamis
-    400010: Klaviatura
-    400012: Kresls01
-    400014: Kresls02
-    400016: Kresls03
-    400018: Kruze
-    400020: Miskaste
-    400022: Monitors
-    400024: Nauda
-    400026: Pase
-    400028: Pele
-    400030: Skivis
-    400032: Stavlampa
-    400034: Telefons
-    400036: TraukuMasina
-    400038: //RootNode
-    2100000: unnamed
-    2300000: Atslegas
-    2300002: Dators
-    2300004: Divans
-    2300006: FotoRamis
-    2300008: Klaviatura
-    2300010: Kresls01
-    2300012: Kresls02
-    2300014: Kresls03
-    2300016: Kruze
-    2300018: Miskaste
-    2300020: Monitors
-    2300022: Nauda
-    2300024: Pase
-    2300026: Pele
-    2300028: Skivis
-    2300030: Stavlampa
-    2300032: Telefons
-    2300034: TraukuMasina
-    3300000: Atslegas
-    3300002: Dators
-    3300004: Divans
-    3300006: FotoRamis
-    3300008: Klaviatura
-    3300010: Kresls01
-    3300012: Kresls02
-    3300014: Kresls03
-    3300016: Kruze
-    3300018: Miskaste
-    3300020: Monitors
-    3300022: Nauda
-    3300024: Pase
-    3300026: Pele
-    3300028: Skivis
-    3300030: Stavlampa
-    3300032: Telefons
-    3300034: TraukuMasina
-    4300000: Skivis
-    4300002: Kruze
-    4300004: Kresls03
-    4300006: Stavlampa
-    4300008: Kresls02
-    4300010: Kresls01
-    4300012: Divans
-    4300014: FotoRamis
-    4300016: Nauda
-    4300018: Pase
-    4300020: Telefons
-    4300022: Atslegas
-    4300024: Miskaste
-    4300026: TraukuMasina
-    4300028: Dators
-    4300030: Klaviatura
-    4300032: Monitors
-    4300034: Pele
-    7400000: Default Take
-    9500000: //RootNode
+    100000: //RootNode
+    100002: rbCan_GEO
+    100004: rbcanClip_GEO
+    400000: //RootNode
+    400002: rbCan_GEO
+    400004: rbcanClip_GEO
+    2100000: phong1
+    2300000: rbCan_GEO
+    2300002: rbcanClip_GEO
+    3300000: rbCan_GEO
+    3300002: rbcanClip_GEO
+    4300000: rbCan_GEO
+    4300002: rbcanClip_GEO
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -153,7 +69,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -180,7 +96,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -31,7 +31,6 @@ public class BaseMotion : MonoBehaviour
 
         if(throwStrength > 0.1)
         {
-            //Debug.Log("play throw sound");
             throwSoundSource.PlayDelayed(0.1f);
         }
 
@@ -51,8 +50,6 @@ public class BaseMotion : MonoBehaviour
 		pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 
-        //Debug.Log("play pickup sound");
         pickupSoundSource.Play();
-
 	}
 }
