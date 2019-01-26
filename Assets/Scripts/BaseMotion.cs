@@ -29,4 +29,14 @@ public class BaseMotion : MonoBehaviour
         throwStrength = 0;
         throwStrImg.fillAmount = 0;
     }
+
+    protected void PickupItem(GameObject pickedUpItem)
+    {
+        pickedUpObject = pickedUpItem;
+
+        pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+    }
 }

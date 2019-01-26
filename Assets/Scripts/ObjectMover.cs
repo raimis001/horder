@@ -15,17 +15,12 @@ public class ObjectMover : BaseMotion
 	void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
-		{ 
-			if (!Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask)) return;
-
-            base.pickedUpObject = hit.transform.gameObject;
-
-            pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
-
-            return;
+		{
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask))
+            {
+                PickupItem(hit.transform.gameObject);
+                return;
+            }
 		}
 
 		if (Input.GetMouseButtonUp(0))
@@ -33,6 +28,7 @@ public class ObjectMover : BaseMotion
             if (base.pickedUpObject)
             {
                 Throw();
+                return;
             }
 		}
 
