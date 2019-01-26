@@ -34,6 +34,8 @@ public class xrHand : MonoBehaviour
 	string touchpad;
 	string menupad;
 
+	Vector3 oldPosition;
+
 	internal Ray ray
 	{
 		get { return new Ray(takePoint.position, takePoint.forward); }
@@ -71,11 +73,17 @@ public class xrHand : MonoBehaviour
 		}
 
 		if (!takeItem) return;
+	
 
 		if (TriggerUp())
 		{
 			takeItem.transform.SetParent(takeParent);
-			takeItem.GetComponent<Rigidbody>().isKinematic = false;
+			Vector3 dir = takeItem.transform.position - oldPosition;
+
+			Rigidbody rigi = takeItem.GetComponent<Rigidbody>();
+			rigi.isKinematic = false;
+			rigi.AddForce(dir * 100, ForceMode.Impulse);
+
 			takeItem = null;
 			takeParent = null;
 			Play(HandAnims.Natural);
@@ -92,8 +100,14 @@ public class xrHand : MonoBehaviour
 			takeItem.transform.Rotate(transform.right, -rotX, Space.World);
 
 		}
+		oldPosition = takeItem.transform.position;
 	}
 
+	private void FixedUpdate()
+	{
+		if (!takeItem) return;
+		//oldPosition = takeItem.transform.position;
+	}
 
 	private void Play(HandAnims trigger = HandAnims.Natural)
 	{
@@ -124,7 +138,6 @@ public class xrHand : MonoBehaviour
 		}
 		Play(HandAnims.Natural);
 	}
-
 	#endregion
 
 	#region INPUT
