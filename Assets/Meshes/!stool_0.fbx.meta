@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: db6f160e26488284f8b5683ce1dd2df2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bolt_GEO
+    100004: bolt_GEO 1
+    100006: bolt_GEO 2
+    100008: bolt_GEO 3
+    100010: group1
+    100012: group2
+    100014: group3
+    100016: group4
+    100018: stoolLeg_GEO
+    100020: stoolLeg_GEO 1
+    100022: stoolLeg_GEO 2
+    100024: stoolLeg_GEO 3
+    100026: stoolLegCap_GEO
+    100028: stoolLegCap_GEO 1
+    100030: stoolLegCap_GEO 2
+    100032: stoolLegCap_GEO 3
+    100034: stoolTop_GEO
+    400000: //RootNode
+    400002: bolt_GEO
+    400004: bolt_GEO 1
+    400006: bolt_GEO 2
+    400008: bolt_GEO 3
+    400010: group1
+    400012: group2
+    400014: group3
+    400016: group4
+    400018: stoolLeg_GEO
+    400020: stoolLeg_GEO 1
+    400022: stoolLeg_GEO 2
+    400024: stoolLeg_GEO 3
+    400026: stoolLegCap_GEO
+    400028: stoolLegCap_GEO 1
+    400030: stoolLegCap_GEO 2
+    400032: stoolLegCap_GEO 3
+    400034: stoolTop_GEO
+    2100000: phong4
+    2100002: phong1
+    2100004: phong2
+    2100006: phong3
+    2300000: bolt_GEO
+    2300002: bolt_GEO 1
+    2300004: bolt_GEO 2
+    2300006: bolt_GEO 3
+    2300008: stoolLeg_GEO
+    2300010: stoolLeg_GEO 1
+    2300012: stoolLeg_GEO 2
+    2300014: stoolLeg_GEO 3
+    2300016: stoolLegCap_GEO
+    2300018: stoolLegCap_GEO 1
+    2300020: stoolLegCap_GEO 2
+    2300022: stoolLegCap_GEO 3
+    2300024: stoolTop_GEO
+    3300000: bolt_GEO
+    3300002: bolt_GEO 1
+    3300004: bolt_GEO 2
+    3300006: bolt_GEO 3
+    3300008: stoolLeg_GEO
+    3300010: stoolLeg_GEO 1
+    3300012: stoolLeg_GEO 2
+    3300014: stoolLeg_GEO 3
+    3300016: stoolLegCap_GEO
+    3300018: stoolLegCap_GEO 1
+    3300020: stoolLegCap_GEO 2
+    3300022: stoolLegCap_GEO 3
+    3300024: stoolTop_GEO
+    4300000: stoolTop_GEO
+    4300002: bolt_GEO
+    4300004: stoolLeg_GEO
+    4300006: stoolLegCap_GEO
+    4300008: bolt_GEO
+    4300010: stoolLeg_GEO
+    4300012: stoolLegCap_GEO
+    4300014: bolt_GEO
+    4300016: stoolLeg_GEO
+    4300018: stoolLegCap_GEO
+    4300020: bolt_GEO
+    4300022: stoolLeg_GEO
+    4300024: stoolLegCap_GEO
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
