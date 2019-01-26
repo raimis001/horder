@@ -40,4 +40,9 @@ public class ObjectSmashingManager : BaseItem
             }
         }
     }
+
+    private void SmashItemMesh(bool addExplosion)
+    {
+
+    }
 }
