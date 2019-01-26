@@ -7,6 +7,9 @@ public class BaseMotion : MonoBehaviour
 {
 	protected GameObject pickedUpObject;
 
+    [SerializeField] protected AudioSource pickupSoundSource;
+    [SerializeField] protected AudioSource throwSoundSource;
+
     [SerializeField] protected float throwStrength;
     [SerializeField] protected Image throwStrImg;
 
@@ -26,8 +29,15 @@ public class BaseMotion : MonoBehaviour
 
         pickedUpObject = null;
 
+        if(throwStrength > 0.1)
+        {
+            //Debug.Log("play throw sound");
+            throwSoundSource.PlayDelayed(0.1f);
+        }
+
         throwStrength = 0;
         throwStrImg.fillAmount = 0;
+
     }
 
     protected void PickupItem(GameObject pickedUpItem)
@@ -38,5 +48,9 @@ public class BaseMotion : MonoBehaviour
         pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+
+        //Debug.Log("play pickup sound");
+        pickupSoundSource.Play();
+
     }
 }

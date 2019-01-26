@@ -9,10 +9,7 @@ public class ObjectMover : BaseMotion
 	[SerializeField] LayerMask layerMask;
     [SerializeField] Transform playerHand;
 
-
-
-
-	void Update()
+    void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
