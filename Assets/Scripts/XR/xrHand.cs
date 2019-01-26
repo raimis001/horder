@@ -55,19 +55,19 @@ public class xrHand : BaseMotion
 
 			if (!Physics.Raycast(ray, out RaycastHit hit, 1, objectLayer)) return;
 
-			takeObject = hit.collider.gameObject;
-			takeObject.transform.SetParent(transform);
-			takeObject.GetComponent<Rigidbody>().useGravity = false;
+            pickedUpObject = hit.collider.gameObject;
+            pickedUpObject.transform.SetParent(transform);
+            pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 			Play(HandAnims.GrabSmall);
 			return;
 		}
 
-		if (!takeObject) return;
+		if (!pickedUpObject) return;
 	
 
 		if (TriggerUp())
 		{
-			takeObject.transform.SetParent(null);
+            pickedUpObject.transform.SetParent(null);
 			Throw();
 			Play(HandAnims.Natural);
 			return;
