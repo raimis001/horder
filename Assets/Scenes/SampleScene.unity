@@ -304,7 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensitivity: 3
   smoothDamp: 0.1
-<<<<<<< HEAD
 --- !u!1 &825802980
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,9 +407,6 @@ GameObject:
   m_PrefabInstance: {fileID: 2570651140803757067}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1072913994
-=======
---- !u!43 &779923211
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -990,13 +986,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-<<<<<<< HEAD
     m_Center: {x: 2.5, y: 1.5, z: -0.24995306}
     m_Extent: {x: 3.0001001, y: 1.5, z: 0.25004694}
-=======
-    m_Center: {x: 2.5, y: -0.25, z: 3.5}
-    m_Extent: {x: 3, y: 0.25, z: 4}
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -1007,7 +998,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
-<<<<<<< HEAD
 --- !u!114 &1742268155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1713894241, guid: 8ad948ed6b28dae498878eebeae38643,
@@ -1021,9 +1011,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &1815677614
-=======
---- !u!43 &1527452746
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1183,13 +1170,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
-<<<<<<< HEAD
---- !u!4 &2145422247 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5983318509788156203, guid: f20a532c2aa98ee4d94c50d401df816f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3429685521625738012}
-=======
 --- !u!1 &1713894239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,8 +6707,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1527452746}
-<<<<<<< HEAD
-=======
     - target: {fileID: 3429685522198487452, guid: f20a532c2aa98ee4d94c50d401df816f,
         type: 3}
       propertyPath: m_SelectedEditorRenderState
@@ -6819,7 +6797,6 @@ PrefabInstance:
       propertyPath: m_Faces.Array.data[5].m_TextureGroup
       value: 0
       objectReference: {fileID: 0}
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
     m_RemovedComponents:
     - {fileID: 2015162413, guid: f20a532c2aa98ee4d94c50d401df816f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f20a532c2aa98ee4d94c50d401df816f, type: 3}
@@ -7146,7 +7123,6 @@ PrefabInstance:
         type: 3}
       propertyPath: throwStrImg
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 1742268155}
     - target: {fileID: 1713894240, guid: 8ad948ed6b28dae498878eebeae38643, type: 3}
       propertyPath: m_RootOrder
@@ -7155,12 +7131,6 @@ PrefabInstance:
     - target: {fileID: 938516560, guid: 8ad948ed6b28dae498878eebeae38643, type: 3}
       propertyPath: m_RootOrder
       value: 1
-=======
-      objectReference: {fileID: 1713894241}
-    - target: {fileID: 1713894240, guid: 8ad948ed6b28dae498878eebeae38643, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
->>>>>>> 9f14a6be653bbaa04204909672dea7094c4df765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ad948ed6b28dae498878eebeae38643, type: 3}
