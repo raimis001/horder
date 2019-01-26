@@ -1,98 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-public class ObjectMover : MonoBehaviour
+public class ObjectMover : BaseMotion
 {
+	[SerializeField] float interactDistance = 5f;
+	[SerializeField] float objRotateSpeed = 20f;
 
-	Transform holdingPoint;
-	Transform heldObject;
-	RaycastHit hit;
-	CameraController camControl;
-	Rigidbody objRb;
-	bool movingObj = false;
+	[SerializeField] LayerMask layerMask;
+    [SerializeField] Transform playerHand;
 
-	public float interactDistance = 5f;
-	public float objRotateSpeed = 20f;
-	public LayerMask layerMask;
-	public KeyCode moveKey = KeyCode.F;
-	public KeyCode rotateKey = KeyCode.R;
 
-	private bool canRotateXZ;
-
-	void Start()
-	{
-		camControl = GetComponent<CameraController>();
-		holdingPoint = new GameObject().transform;
-		holdingPoint.SetParent(transform, false);
-	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(moveKey))
-		{
-			if (heldObject)
-			{
-				objRb.isKinematic = false;
-				movingObj = false;
-				heldObject = null;
-				objRb = null;
-				return;
-			}
+		if (Input.GetMouseButtonDown(0))
+		{ 
+			if (!Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask)) return;
 
-			if (!Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
-			{
-				return;
-			}
-
-			holdingPoint.position = hit.transform.position;
-			heldObject = hit.transform;
-			objRb = heldObject.GetComponent<Rigidbody>();
-			objRb.isKinematic = true;
-			movingObj = true;
-
-			ObjectItem item = heldObject.GetComponent<ObjectItem>();
-			if (!item)
-			{
-				canRotateXZ = true;
-				return;
-			}
-
-			canRotateXZ = item.canRotateXZ;
-			return;
+            base.pickedUpObject = hit.transform.gameObject;
+            SetupPickupContraints(true);
+            return;
 		}
 
-		if (!movingObj) return;
-
-		heldObject.position = holdingPoint.position;
-
-		float rotY;
-		if (Input.GetKey(rotateKey))
+		if (Input.GetMouseButtonUp(0))
 		{
-
-			camControl.restrictCamera = true;
-			
-			float rotX = objRotateSpeed * Input.GetAxis("Mouse Y");
-			rotY = objRotateSpeed * Input.GetAxis("Mouse X");
-			heldObject.Rotate(Vector3.up, -rotY, Space.World);
-			if (canRotateXZ)
-				heldObject.Rotate(transform.right, rotX, Space.World);
-			return;
+            if (base.pickedUpObject)
+            {
+                SetupPickupContraints(false);
+                Throw();
+            }
 		}
 
-		camControl.restrictCamera = false;
-		rotY = camControl.sensitivityX * Input.GetAxisRaw("Mouse X");
-		heldObject.Rotate(Vector3.up, rotY, Space.World);
-
+		if (Input.GetMouseButton(2))
+		{
+			Rotate(new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y")) * objRotateSpeed);
+			return;
+		}
 	}
 
-	public void Destroy()
-	{
-		if (objRb) objRb.isKinematic = false;
-		movingObj = false;
-		heldObject = null;
-		objRb = null;
-
-	}
+    private void FixedUpdate()
+    {
+        if (base.pickedUpObject)
+        {
+            base.pickedUpObject.transform.position = playerHand.position;
+        }
+    }
 }
