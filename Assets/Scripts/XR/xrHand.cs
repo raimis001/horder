@@ -18,7 +18,7 @@ public class xrHand : BaseMotion
 	public LayerMask objectLayer;
 	public Transform takePoint;
 
-	[Range(0,5)]
+	[Range(0, 5)]
 	public float rotateSpeed = 1;
 
 	private Animator anim;
@@ -28,6 +28,11 @@ public class xrHand : BaseMotion
 	string touchpadY;
 	string touchpad;
 	string menupad;
+
+	internal bool isEmpty
+	{
+		get { return !pickedUpObject; }
+	}
 
 	internal Ray ray
 	{
@@ -63,7 +68,7 @@ public class xrHand : BaseMotion
 		}
 
 		if (!pickedUpObject) return;
-	
+
 
 		if (TriggerUp())
 		{
@@ -80,7 +85,7 @@ public class xrHand : BaseMotion
 		}
 	}
 
-	
+
 
 	private void Play(HandAnims trigger = HandAnims.Natural)
 	{

@@ -53,6 +53,7 @@ public class xrMotion : MonoBehaviour
 
 	private void Move()
 	{
+		if (!xrHand.LeftHand.isEmpty || !xrHand.RightHand.isEmpty) return;
 
 		move = Vector3.zero;
 		move.x = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f ? Input.GetAxis("Horizontal") * 0.8f : 0;
