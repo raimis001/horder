@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class xrHand : MonoBehaviour
+public class xrHand : BaseMotion
 {
 	enum HandAnims
 	{
