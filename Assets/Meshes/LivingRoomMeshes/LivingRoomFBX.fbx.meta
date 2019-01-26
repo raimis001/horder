@@ -202,6 +202,43 @@ ModelImporter:
     4300068: Wall03
     4300070: Wall02
     4300072: Wall01
+    6400000: CeilingEdge01
+    6400002: CeilingEdge02
+    6400004: CeilingEdge03
+    6400006: CeilingEdge04
+    6400008: CeilingEdge05
+    6400010: CeilingEdge06
+    6400012: CeilingMain
+    6400014: ClosetCeiling
+    6400016: ClosetDoor
+    6400018: ClosetDoorway
+    6400020: ClosetFloor
+    6400022: ClosetWall01
+    6400024: ClosetWall02
+    6400026: ClosetWall03
+    6400028: ClosetWall04
+    6400030: ExitDoor
+    6400032: ExitDoorway
+    6400034: FloorEdge01-1
+    6400036: FloorEdge01-2
+    6400038: FloorEdge02
+    6400040: FloorEdge03
+    6400042: FloorEdge04
+    6400044: FloorEdge05
+    6400046: FloorEdge06
+    6400048: FloorMain
+    6400050: Wall01
+    6400052: Wall02
+    6400054: Wall03
+    6400056: Wall04
+    6400058: Wall05
+    6400060: Wall06
+    6400062: Window01
+    6400064: Window01-Glass1
+    6400066: Window01-Glass2
+    6400068: Window02
+    6400070: Window02-Glass1
+    6400072: Window02-Glass2
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -245,7 +282,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

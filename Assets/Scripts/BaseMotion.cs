@@ -37,7 +37,7 @@ public class BaseMotion : MonoBehaviour
 		pickedUpObject = null;
 
 		throwStrength = 0;
-		throwStrImg.fillAmount = 0;
+		if (throwStrImg) throwStrImg.fillAmount = 0;
 	}
 
 	protected void PickupItem(GameObject pickedUpItem)

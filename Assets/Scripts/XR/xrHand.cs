@@ -28,6 +28,8 @@ public class xrHand : BaseMotion
 	string touchpadY;
 	string touchpad;
 	string menupad;
+	string xAxis;
+	string yAxis;
 
 	internal bool isEmpty
 	{
@@ -49,12 +51,16 @@ public class xrHand : BaseMotion
 		touchpadY = kind == HandKind.Left ? "LeftTouchY" : "RightTouchY";
 		touchpad = kind == HandKind.Left ? "joystick button 16" : "joystick button 17";
 		menupad = kind == HandKind.Left ? "joystick button 6" : "joystick button 7";
+		xAxis = kind == HandKind.Left ? "Horzontal" : "Rotate";
+		yAxis = kind == HandKind.Left ? "Vertical" : "RotateX";
+
 		if (kind == HandKind.Left) LeftHand = this;
 		if (kind == HandKind.Right) RightHand = this;
 	}
 
 	private void Update()
 	{
+
 		if (TriggerDown())
 		{
 
@@ -62,7 +68,8 @@ public class xrHand : BaseMotion
 
             pickedUpObject = hit.collider.gameObject;
             pickedUpObject.transform.SetParent(transform);
-            pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+            //pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+			PickupItem(pickedUpObject);
 			Play(HandAnims.GrabSmall);
 			return;
 		}
@@ -72,7 +79,8 @@ public class xrHand : BaseMotion
 
 		if (TriggerUp())
 		{
-            pickedUpObject.transform.SetParent(null);
+      pickedUpObject.transform.SetParent(null);
+			throwStrength = Mathf.Abs(Input.GetAxis(yAxis));
 			Throw();
 			Play(HandAnims.Natural);
 			return;
