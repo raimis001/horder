@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObjectAccepter : MonoBehaviour
 {
+	public delegate void DeleteEvent(ObjectItem item);
+	public static event DeleteEvent OnDeleteItem;
+
 	public ObjectKind acceptKind;
 
 	private ObjectMover mover;
@@ -20,9 +23,9 @@ public class ObjectAccepter : MonoBehaviour
 
 		if (obj.kind != acceptKind) return;
 
-		mover.Destroy();
-		Destroy(obj.gameObject);
+		OnDeleteItem.Invoke(obj);
 
+		Destroy(obj.gameObject);
 	}
 
 

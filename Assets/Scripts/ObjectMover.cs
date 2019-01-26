@@ -87,7 +87,16 @@ public class ObjectMover : MonoBehaviour
 
 	}
 
-	public void Destroy()
+	private void OnEnable()
+	{
+		ObjectAccepter.OnDeleteItem += Destroy;
+	}
+	private void OnDisable()
+	{
+		ObjectAccepter.OnDeleteItem -= Destroy;
+	}
+
+	public void Destroy(ObjectItem item)
 	{
 		if (objRb) objRb.isKinematic = false;
 		movingObj = false;
