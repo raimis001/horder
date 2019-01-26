@@ -17,19 +17,8 @@ public class BaseMotion : MonoBehaviour
 	{
         pickedUpObject.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20f, ForceMode.Impulse);
         pickedUpObject = null;
-	}
 
-    protected void SetupPickupContraints(bool lockContraints)
-    {
-        if (lockContraints)
-        {
-            pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
-        }
-        else
-        {
-            pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
-        }
+        pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
     }
 }

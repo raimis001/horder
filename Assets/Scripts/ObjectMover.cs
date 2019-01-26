@@ -17,7 +17,12 @@ public class ObjectMover : BaseMotion
 			if (!Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask)) return;
 
             base.pickedUpObject = hit.transform.gameObject;
-            SetupPickupContraints(true);
+
+            pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+
             return;
 		}
 
@@ -25,7 +30,6 @@ public class ObjectMover : BaseMotion
 		{
             if (base.pickedUpObject)
             {
-                SetupPickupContraints(false);
                 Throw();
             }
 		}
