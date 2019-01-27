@@ -8,7 +8,12 @@ public class ObjectMover : BaseMotion
 
 	[SerializeField] LayerMask layerMask;
 	[SerializeField] Transform playerHand;
+	[SerializeField] Transform player;
 
+	private void Start()
+	{
+		throwStrImg.fillAmount = 0;
+	}
 	void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
@@ -16,6 +21,8 @@ public class ObjectMover : BaseMotion
 			if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask))
 			{
 				PickupItem(hit.transform.gameObject);
+				pickedUpObject.transform.SetParent(player);
+				pickedUpObject.transform.localPosition = playerHand.localPosition;
 				return;
 			}
 		}
@@ -24,7 +31,8 @@ public class ObjectMover : BaseMotion
 		{
 			if (base.pickedUpObject)
 			{
-				Throw();
+				pickedUpObject.transform.SetParent(null);
+				Throw(transform.forward);
 				return;
 			}
 		}
@@ -35,8 +43,9 @@ public class ObjectMover : BaseMotion
 			return;
 		}
 
-		if (base.pickedUpObject)
-		{
+		if (!base.pickedUpObject) return;
+		//player.position = transform.position;
+
 			if (Input.GetMouseButton(1))
 			{
 				if (throwStrength < 1)
@@ -52,33 +61,21 @@ public class ObjectMover : BaseMotion
 				}
 			}
 			throwStrength = Mathf.Clamp(throwStrength, 0, 1);
-
-			//if (Input.GetKeyDown(KeyCode.E))
-			//{
-			//	throwStrength += 0.1f;
-			//	if (throwStrength > 1)
-			//	{
-			//		throwStrength = 1;
-			//	}
-			//}
-			//if (Input.GetKeyDown(KeyCode.Q))
-			//{
-			//	throwStrength -= 0.1f;
-			//	if (throwStrength < 0)
-			//	{
-			//		throwStrength = 0;
-			//	}
-			//}
-
 			throwStrImg.fillAmount = throwStrength;
-		}
+		
 	}
-
-	private void FixedUpdate()
+	private void LateUpdate()
 	{
-		if (base.pickedUpObject)
-		{
-			base.pickedUpObject.transform.position = playerHand.position;
-		}
+		if (!base.pickedUpObject) return;
+
+		player.position = transform.position;
+		player.forward = transform.forward;
 	}
+	//private void FixedUpdate()
+	//{
+	//	if (base.pickedUpObject)
+	//	{
+	//		base.pickedUpObject.transform.position = playerHand.position;
+	//	}
+	//}
 }

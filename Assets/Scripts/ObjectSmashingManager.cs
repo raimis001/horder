@@ -9,16 +9,19 @@ public class ObjectSmashingManager : BaseItem
 
     private void FixedUpdate()
     {
-        if (itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.1f)
+        if (!itemPicked && itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.000001f)
         {
-            itemThrown = false; //Item has settled
+			Debug.Log("Close trow");
+						//itemThrown = false; //Item has settled
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (itemThrown)
+		Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+		if (itemThrown)
         {
+			Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
             if (GetComponent<Rigidbody>().velocity.magnitude > 3.5f)
             {
                 SmashItemMesh(true);
@@ -28,7 +31,9 @@ public class ObjectSmashingManager : BaseItem
             {
                 collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
             }
-        }
+			itemThrown = false;
+
+				}
     }
 
     public void SmashItemMesh(bool addExplosion)

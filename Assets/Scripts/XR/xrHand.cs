@@ -66,22 +66,27 @@ public class xrHand : BaseMotion
 
 			if (!Physics.Raycast(ray, out RaycastHit hit, 1, objectLayer)) return;
 
-            pickedUpObject = hit.collider.gameObject;
-            pickedUpObject.transform.SetParent(transform);
-            //pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
+			pickedUpObject = hit.collider.gameObject;
+			pickedUpObject.transform.SetParent(transform);
+			pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 			PickupItem(pickedUpObject);
 			Play(HandAnims.GrabSmall);
 			return;
 		}
 
-		if (!pickedUpObject) return;
+		if (!pickedUpObject)
+		{
+			throwStrImg.fillAmount = 0;
+			return;
+		}
+		throwStrength = Mathf.Abs(Input.GetAxis(yAxis));
+		throwStrImg.fillAmount = throwStrength;
 
 
 		if (TriggerUp())
 		{
-      pickedUpObject.transform.SetParent(null);
-			throwStrength = Mathf.Abs(Input.GetAxis(yAxis));
-			Throw();
+			pickedUpObject.transform.SetParent(null);
+			Throw(takePoint.forward);
 			pickedUpObject = null;
 			Play(HandAnims.Natural);
 			return;
@@ -94,7 +99,7 @@ public class xrHand : BaseMotion
 		}
 	}
 
-
+	
 
 	private void Play(HandAnims trigger = HandAnims.Natural)
 	{

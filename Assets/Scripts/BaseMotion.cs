@@ -18,13 +18,18 @@ public class BaseMotion : MonoBehaviour
 		pickedUpObject.transform.Rotate(Vector3.up, -delta.z, Space.World);
 		pickedUpObject.transform.Rotate(transform.right, delta.x, Space.World);
 	}
+	
 
-	protected void Throw()
+	protected void Throw(Vector3 forward)
 	{
-		pickedUpObject.GetComponent<BaseItem>().itemThrown = true;
-		pickedUpObject.GetComponent<BaseItem>().itemPicked = false;
+		if (pickedUpObject.GetComponent<BaseItem>())
+		{
+			Debug.Log("Set throwned");
+			pickedUpObject.GetComponent<BaseItem>().itemThrown = true;
+			pickedUpObject.GetComponent<BaseItem>().itemPicked = false;
+		}
 
-		pickedUpObject.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2 * (throwStrength * 10), ForceMode.Impulse);
+		pickedUpObject.GetComponent<Rigidbody>().AddForce(forward * throwStrength * 20f, ForceMode.Impulse);
 
 		pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
@@ -44,12 +49,21 @@ public class BaseMotion : MonoBehaviour
 	{
 		pickedUpObject = pickedUpItem;
 
-		pickedUpObject.GetComponent<BaseItem>().itemPicked = true;
+		if (pickedUpObject.GetComponent<BaseItem>())
+			pickedUpObject.GetComponent<BaseItem>().itemPicked = true;
+
 		pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 		pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 
     if (pickupSoundSource)    pickupSoundSource.Play();
+	}
+	private void FixedUpdate()
+	{
+		if (!pickedUpObject || !pickedUpObject.GetComponent<BaseItem>().itemPicked) return;
+		
+		pickedUpObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 	}
 }
