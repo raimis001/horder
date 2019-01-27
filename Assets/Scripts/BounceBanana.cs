@@ -21,12 +21,13 @@ public class BounceBanana : MonoBehaviour
 		if (sound)
 		{
 			sound.Play();
+			StartCoroutine(WaitSound());
 		}
 	}
 	IEnumerator WaitSound()
 	{
 		canSound = false;
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(4);
 		canSound = true;
 	}
 }
