@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.7734206, g: 0.7678703, b: 0.8203545, a: 1}
+  m_IndirectSpecularColor: {r: 0.771382, g: 0.7642464, b: 0.81730574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,7 +182,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996124174 stripped
 GameObject:
@@ -408,6 +408,63 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 9141139183206238234}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1808395825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_Name
+      value: '!aliens_0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.227647
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9921232
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.7502391
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 389ba068829837d40a7304a7b1539cf2, type: 3}
 --- !u!82 &1809326538 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5128145138667377920, guid: 8ad948ed6b28dae498878eebeae38643,
