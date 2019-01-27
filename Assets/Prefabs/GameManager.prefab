@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938516559}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.024999857, y: -0.29399997, z: 1.6570003}
+  m_LocalPosition: {x: 0.024999857, y: -0.112, z: 1.6570003}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 9141139182731748114}
@@ -381,10 +381,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 1.52, z: 0}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &2177934945249452258
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7626487465535420876
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ PrefabInstance:
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22914709
+      value: -0.8009099
       objectReference: {fileID: 0}
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
@@ -1158,12 +1158,12 @@ PrefabInstance:
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97339183
+      value: 0.598785
       objectReference: {fileID: 0}
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.453
+      value: 0.591
       objectReference: {fileID: 0}
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
@@ -1173,12 +1173,12 @@ PrefabInstance:
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.842
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: 7026290731610199596, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -26.494001
+      value: -106.434006
       objectReference: {fileID: 0}
     - target: {fileID: 768395198, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
       propertyPath: m_textInfo.textComponent
@@ -1208,11 +1208,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1979984228336675349, guid: 0334c1e5a296d3044ae45ae77c2da199,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7389601800748930206, guid: 0334c1e5a296d3044ae45ae77c2da199,
         type: 3}
@@ -1264,6 +1259,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1591906965, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
+      propertyPath: pickupSoundSource
+      value: 
+      objectReference: {fileID: 2388858562189199397}
+    - target: {fileID: 1591906965, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
+      propertyPath: throwSoundSource
+      value: 
+      objectReference: {fileID: 2400858687286739265}
+    - target: {fileID: 1591906965, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
       propertyPath: takePoint
       value: 
       objectReference: {fileID: 7527610808728252427}
@@ -1271,6 +1274,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 670907608, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
+      propertyPath: pickupSoundSource
+      value: 
+      objectReference: {fileID: 2388858562189199397}
+    - target: {fileID: 670907608, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
+      propertyPath: throwSoundSource
+      value: 
+      objectReference: {fileID: 2400858687286739265}
     - target: {fileID: 670907608, guid: 0334c1e5a296d3044ae45ae77c2da199, type: 3}
       propertyPath: takePoint
       value: 

@@ -29,7 +29,7 @@ public class BaseMotion : MonoBehaviour
 		pickedUpObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		pickedUpObject.GetComponent<Rigidbody>().useGravity = true;
 
-        if(throwStrength > 0.1)
+        if(throwStrength > 0.1 && throwSoundSource)
         {
             throwSoundSource.PlayDelayed(0.1f);
         }
