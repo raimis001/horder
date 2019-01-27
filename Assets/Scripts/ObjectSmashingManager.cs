@@ -11,7 +11,7 @@ public class ObjectSmashingManager : BaseItem
 	{
 		if (!itemPicked && itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.000001f)
 		{
-			Debug.Log("Close trow");
+			//Debug.Log("Close trow");
 			//itemThrown = false; //Item has settled
 		}
 	}
