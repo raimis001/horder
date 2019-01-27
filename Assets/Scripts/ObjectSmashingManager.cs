@@ -32,10 +32,13 @@ public class ObjectSmashingManager : BaseItem
 
     public void SmashItemMesh(bool addExplosion)
     {
+        Debug.Log("Smashing");
+        if (!smashedObj) return;
+
         Instantiate(smashedObj, transform.position, transform.rotation);
         if (addExplosion)
         {
-            foreach (GameObject item in smashedObj.transform)
+            foreach (Transform item in smashedObj.transform)
             {
                 item.GetComponent<Rigidbody>().AddForce(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f), ForceMode.Impulse);
             }

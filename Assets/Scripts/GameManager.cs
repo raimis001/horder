@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("StartScene");
-            Cursor.lockState = CursorLockMode.None;
-        }
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    SceneManager.LoadScene("StartScene");
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
 
 	}
 }
