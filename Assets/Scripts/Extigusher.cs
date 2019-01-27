@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Extigusher : BaseItem
 {
+	public AudioSource sound;
 	public GameObject steam;
 
 	private float engiTime;
 	private void Update()
 	{
-		if (steam.activeInHierarchy && !itemPicked) steam.SetActive(false);
-		if (!steam.activeInHierarchy && itemPicked) steam.SetActive(true);
-
+		if (steam.activeInHierarchy && !itemPicked)
+		{
+			if (sound) sound.Stop();
+			steam.SetActive(false);
+		}
+		if (!steam.activeInHierarchy && itemPicked)
+		{
+			if (sound) sound.Play();
+			steam.SetActive(true);
+		}
 		if (!steam.activeInHierarchy) return;
 
 		steam.transform.rotation = Camera.main.transform.rotation;

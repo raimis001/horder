@@ -12,6 +12,8 @@ public class PlayerCameraControl_Example : MonoBehaviour {
     public float Sensitivity = 3f;
     public float smoothDamp = 0.1f;
 
+	public Vector3 delta;
+
     GameObject player;
 
     void Start ()
@@ -32,7 +34,7 @@ public class PlayerCameraControl_Example : MonoBehaviour {
 
     void Update ()
     {
-        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + delta;
 
         // if (!Cursor.visible)
         // {

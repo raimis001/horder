@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5604072615616245202}
   - component: {fileID: 5604072615616245205}
+  - component: {fileID: 8367246977791220344}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -57,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5604072615616245203}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.7, y: 2, z: 1.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.09, y: 2, z: 1.7}
+  m_LocalScale: {x: 1, y: 1, z: 1.2802}
   m_Children: []
   m_Father: {fileID: 5604072615110559418}
   m_RootOrder: 1
@@ -76,6 +77,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.83777, y: 9.009045, z: 0.3627839}
   m_Center: {x: 0.8664484, y: 1.6901805, z: -0.04857135}
+--- !u!114 &8367246977791220344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604072615616245203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51359f674cb02904e98f4579846bc6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+  dedEffect: {fileID: 2543823056798049875, guid: 5d7346cd8b7835c40844fbd4c1aa5b47,
+    type: 3}
 --- !u!1 &5604072616559891206
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5604072616559891225}
   - component: {fileID: 5604072616559891224}
+  - component: {fileID: 3825315901434439928}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -101,8 +118,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5604072616559891206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -2.603}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 2, z: -3.16}
+  m_LocalScale: {x: 1, y: 1, z: 1.4551}
   m_Children: []
   m_Father: {fileID: 5604072615110559418}
   m_RootOrder: 0
@@ -120,3 +137,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.83777, y: 9.009045, z: 0.3627839}
   m_Center: {x: 0.8664484, y: 1.6901805, z: -0.04857135}
+--- !u!114 &3825315901434439928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604072616559891206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51359f674cb02904e98f4579846bc6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+  dedEffect: {fileID: 2543823056798049875, guid: 5d7346cd8b7835c40844fbd4c1aa5b47,
+    type: 3}

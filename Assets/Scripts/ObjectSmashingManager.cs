@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectSmashingManager : BaseItem
 {
+	public AudioSource sound;
     public GameObject smashedObj;
 
     private void FixedUpdate()
@@ -43,6 +44,8 @@ public class ObjectSmashingManager : BaseItem
                 item.GetComponent<Rigidbody>().AddForce(Random.Range(-4f, 4f), Random.Range(-4f, 4f), Random.Range(-4f, 4f), ForceMode.Impulse);
             }
         }
-        Destroy(gameObject);
+				if (sound) sound.Play();
+
+				Destroy(gameObject);
     }
 }

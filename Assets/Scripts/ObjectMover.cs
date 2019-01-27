@@ -41,13 +41,14 @@ public class ObjectMover : BaseMotion
 			{
 				if (throwStrength < 1)
 				{
-					throwStrength += Time.deltaTime / 3f;
+					throwStrength += Time.deltaTime / 1.2f;
 				}
-			} else
+			}
+			else
 			{
 				if (throwStrength > 0)
 				{
-					throwStrength -= Time.deltaTime / 2f;
+					throwStrength -= Time.deltaTime / 1f;
 				}
 			}
 			throwStrength = Mathf.Clamp(throwStrength, 0, 1);
