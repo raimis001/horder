@@ -5,33 +5,34 @@ using UnityEngine;
 public class ObjectSmashingManager : BaseItem
 {
 	public AudioSource sound;
-    public GameObject smashedObj;
+	public GameObject smashedObj;
 
-    private void FixedUpdate()
-    {
-        if (!itemPicked && itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.000001f)
-        {
-			Debug.Log("Close trow");
-						//itemThrown = false; //Item has settled
-        }
-    }
+	private void FixedUpdate()
+	{
+		if (!itemPicked && itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.000001f)
+		{
+			//Debug.Log("Close trow");
+			//itemThrown = false; //Item has settled
+		}
+	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-		Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+	private void OnCollisionEnter(Collision collision)
+	{
 		if (itemThrown)
-        {
-			Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
-            if (GetComponent<Rigidbody>().velocity.magnitude > 3.5f)
-            {
-                SmashItemMesh(true);
-            }
+		{
+			if (GetComponent<Rigidbody>().velocity.magnitude > 2.5f)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-            if (collision.collider.GetComponent<ObjectSmashingManager>())
-            {
-                collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
-            }
+				SmashItemMesh(true);
+			}
+
+			if (collision.collider.GetComponent<ObjectSmashingManager>())
+			{
+				collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
+			}
 			itemThrown = false;
+<<<<<<< HEAD
 			}
     }
 
@@ -52,4 +53,28 @@ public class ObjectSmashingManager : BaseItem
 
 				Destroy(gameObject);
     }
+=======
+
+		}
+	}
+
+	public void SmashItemMesh(bool addExplosion)
+	{
+		Debug.Log("Smashing");
+		if (!smashedObj) return;
+
+		GameObject t = Instantiate(smashedObj, transform.position, transform.rotation);
+		if (addExplosion)
+		{
+			foreach (Transform item in t.transform)
+			{
+				item.GetComponent<Rigidbody>().AddForce(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f), ForceMode.Impulse);
+				//item.GetComponent<Rigidbody>().isKinematic = true;
+			}
+		}
+		if (sound) sound.Play();
+
+		Destroy(gameObject);
+	}
+>>>>>>> b58b24e0fa70824abe82942b0790e865f36696fc
 }

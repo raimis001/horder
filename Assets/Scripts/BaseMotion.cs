@@ -24,7 +24,7 @@ public class BaseMotion : MonoBehaviour
 	{
 		if (pickedUpObject.GetComponent<BaseItem>())
 		{
-			Debug.Log("Set throwned");
+			//Debug.Log("Set throwned");
 			pickedUpObject.GetComponent<BaseItem>().itemThrown = true;
 			pickedUpObject.GetComponent<BaseItem>().itemPicked = false;
 		}
