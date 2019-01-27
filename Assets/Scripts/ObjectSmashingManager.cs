@@ -32,8 +32,7 @@ public class ObjectSmashingManager : BaseItem
                 collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
             }
 			itemThrown = false;
-
-				}
+			}
     }
 
     public void SmashItemMesh(bool addExplosion)
