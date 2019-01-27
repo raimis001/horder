@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8199158000089484842}
   - component: {fileID: 2448832303293655355}
   - component: {fileID: 7025861385306633504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skivis_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

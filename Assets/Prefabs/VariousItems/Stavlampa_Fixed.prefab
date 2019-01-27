@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2785555110410702252}
   - component: {fileID: 8750467588854204426}
   - component: {fileID: 2534134917331878882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stavlampa_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

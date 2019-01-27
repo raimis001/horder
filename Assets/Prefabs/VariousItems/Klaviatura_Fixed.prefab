@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5270005442672277214}
   - component: {fileID: 9049789579182643162}
   - component: {fileID: 1555329500527619204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Klaviatura_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 628255422683819544}
   - component: {fileID: 7357320656579594981}
   - component: {fileID: 3285470306174156798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Atslegas_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

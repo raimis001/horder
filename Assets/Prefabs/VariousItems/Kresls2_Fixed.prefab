@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1634748793417603267}
   - component: {fileID: 8119454361275602812}
   - component: {fileID: 2138757182676141560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kresls2_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

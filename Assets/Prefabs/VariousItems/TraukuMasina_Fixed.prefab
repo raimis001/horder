@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8222621265185498792}
   - component: {fileID: 8269333161524631106}
   - component: {fileID: 3943018316576890150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TraukuMasina_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

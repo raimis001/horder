@@ -40,7 +40,7 @@ public class ObjectSmashingManager : BaseItem
         {
             foreach (Transform item in smashedObj.transform)
             {
-                item.GetComponent<Rigidbody>().AddForce(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f), ForceMode.Impulse);
+                item.GetComponent<Rigidbody>().AddForce(Random.Range(-4f, 4f), Random.Range(-4f, 4f), Random.Range(-4f, 4f), ForceMode.Impulse);
             }
         }
         Destroy(gameObject);

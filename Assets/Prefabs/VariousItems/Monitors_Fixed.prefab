@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3758659652411796616}
   - component: {fileID: 3990251691106135389}
   - component: {fileID: 3745272733657570868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Monitors_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

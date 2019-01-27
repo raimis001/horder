@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 474443202975414492}
   - component: {fileID: 7577431627208317576}
   - component: {fileID: 4818937878760260411}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kruze_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

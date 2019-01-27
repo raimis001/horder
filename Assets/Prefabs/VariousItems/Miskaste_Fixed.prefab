@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3766436267603165167}
   - component: {fileID: 4717918814835380926}
   - component: {fileID: 3527205269001665684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Miskaste_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
