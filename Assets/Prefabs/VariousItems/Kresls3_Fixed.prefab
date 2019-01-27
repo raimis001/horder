@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3765373368557510461}
   - component: {fileID: 4315153425392250878}
   - component: {fileID: 4753254115051987867}
+  - component: {fileID: 7219676016663882581}
   m_Layer: 0
   m_Name: Kresls3_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7219676016663882581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253847058808388640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 7473761865405732869, guid: 00767b0ebf298d343b16ba104c6297b0,
+    type: 3}

@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class ObjectSmashingManager : BaseItem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject smashedObj;
 
     private void FixedUpdate()
     {
-        if (GetComponent<Rigidbody>().velocity.magnitude <= 0.1f)
+        if (itemThrown && GetComponent<Rigidbody>().velocity.magnitude <= 0.1f)
         {
-            itemThrown = false;
-            //Debug.Log("item has settled");
+            itemThrown = false; //Item has settled
         }
     }
 
@@ -29,20 +18,28 @@ public class ObjectSmashingManager : BaseItem
     {
         if (itemThrown)
         {
-            if (GetComponent<Rigidbody>().velocity.magnitude > 5f)
-            {
-                Debug.Log("item Really Smashed");
-                return;
-            }
             if (GetComponent<Rigidbody>().velocity.magnitude > 3.5f)
             {
-                Debug.Log("item smashed");
+                SmashItemMesh(true);
+            }
+
+            if (collision.collider.GetComponent<ObjectSmashingManager>())
+            {
+                collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
             }
         }
     }
 
     public void SmashItemMesh(bool addExplosion)
     {
-
+        Instantiate(smashedObj, transform.position, transform.rotation);
+        if (addExplosion)
+        {
+            foreach (GameObject item in smashedObj.transform)
+            {
+                item.GetComponent<Rigidbody>().AddForce(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f), ForceMode.Impulse);
+            }
+        }
+        Destroy(gameObject);
     }
 }

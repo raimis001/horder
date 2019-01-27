@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23733889397337830}
   - component: {fileID: 8222621265185498792}
   - component: {fileID: 8269333161524631106}
+  - component: {fileID: 3943018316576890150}
   m_Layer: 0
   m_Name: TraukuMasina_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3943018316576890150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635718015844684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 4356570037819026121, guid: 33455cad37030d249904c9b123260874,
+    type: 3}

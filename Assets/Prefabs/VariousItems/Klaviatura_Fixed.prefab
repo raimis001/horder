@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 593583636763793114}
   - component: {fileID: 5270005442672277214}
   - component: {fileID: 9049789579182643162}
+  - component: {fileID: 1555329500527619204}
   m_Layer: 0
   m_Name: Klaviatura_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: e23d2e55a4445114ead4e19c52569032, type: 3}
+--- !u!114 &1555329500527619204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605819543211700804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 4332476194297466523, guid: c605e7dd962a22340992b364759445f2,
+    type: 3}

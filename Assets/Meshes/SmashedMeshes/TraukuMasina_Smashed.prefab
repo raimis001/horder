@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6547164387193926534}
   - component: {fileID: 6547164387195056582}
   - component: {fileID: 6547164387191013478}
+  - component: {fileID: 308475661067001641}
   m_Layer: 0
   m_Name: TraukuMasina.003
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+  - {fileID: 2100000, guid: 39c17027ba8d80244b403eb0dd971fec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,6 +126,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+--- !u!54 &308475661067001641
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547164387197316994}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6547164387197316996
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +154,7 @@ GameObject:
   - component: {fileID: 6547164387193926536}
   - component: {fileID: 6547164387195056584}
   - component: {fileID: 6547164387191013480}
+  - component: {fileID: 2732447485583117311}
   m_Layer: 0
   m_Name: TraukuMasina.002
   m_TagString: Untagged
@@ -183,7 +201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+  - {fileID: 2100000, guid: 39c17027ba8d80244b403eb0dd971fec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,6 +235,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+--- !u!54 &2732447485583117311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547164387197316996}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6547164387197316998
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +263,7 @@ GameObject:
   - component: {fileID: 6547164387193926538}
   - component: {fileID: 6547164387195056586}
   - component: {fileID: 6547164387191013482}
+  - component: {fileID: 6557734256432162588}
   m_Layer: 0
   m_Name: TraukuMasina.000
   m_TagString: Untagged
@@ -275,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+  - {fileID: 2100000, guid: 39c17027ba8d80244b403eb0dd971fec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,3 +344,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300138, guid: 47b0c72d4b589b347831d6482819946d, type: 3}
+--- !u!54 &6557734256432162588
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547164387197316998}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

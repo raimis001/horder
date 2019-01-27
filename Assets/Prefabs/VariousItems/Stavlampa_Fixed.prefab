@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23785590652683630}
   - component: {fileID: 2785555110410702252}
   - component: {fileID: 8750467588854204426}
+  - component: {fileID: 2534134917331878882}
   m_Layer: 0
   m_Name: Stavlampa_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2534134917331878882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393252356910256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 3186452757981677947, guid: 70db873a66f25e74fa26efc617095006,
+    type: 3}

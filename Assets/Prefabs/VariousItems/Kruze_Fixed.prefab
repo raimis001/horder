@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23479371111356186}
   - component: {fileID: 474443202975414492}
   - component: {fileID: 7577431627208317576}
+  - component: {fileID: 4818937878760260411}
   m_Layer: 0
   m_Name: Kruze_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300010, guid: e23d2e55a4445114ead4e19c52569032, type: 3}
+--- !u!114 &4818937878760260411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788759505318232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 1335246525929881668, guid: 8f99d440837e5d5478c1ab08f3f91345,
+    type: 3}

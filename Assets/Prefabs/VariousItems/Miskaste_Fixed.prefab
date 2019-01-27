@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23353885315505864}
   - component: {fileID: 3766436267603165167}
   - component: {fileID: 4717918814835380926}
+  - component: {fileID: 3527205269001665684}
   m_Layer: 0
   m_Name: Miskaste_Fixed
   m_TagString: Untagged
@@ -109,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3527205269001665684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554686886634266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77fc75d91b754d9ae067f18f1584c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashedObj: {fileID: 9152743696272339625, guid: 4cf08ec5b23e3184e92bcce86a0cfbea,
+    type: 3}
