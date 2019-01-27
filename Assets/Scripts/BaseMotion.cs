@@ -50,6 +50,6 @@ public class BaseMotion : MonoBehaviour
 		pickedUpObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		pickedUpObject.GetComponent<Rigidbody>().useGravity = false;
 
-        pickupSoundSource.Play();
+    if (pickupSoundSource)    pickupSoundSource.Play();
 	}
 }

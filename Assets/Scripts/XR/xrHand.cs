@@ -82,6 +82,7 @@ public class xrHand : BaseMotion
       pickedUpObject.transform.SetParent(null);
 			throwStrength = Mathf.Abs(Input.GetAxis(yAxis));
 			Throw();
+			pickedUpObject = null;
 			Play(HandAnims.Natural);
 			return;
 		}
