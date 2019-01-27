@@ -7,26 +7,26 @@ public class ObjectMover : BaseMotion
 	[SerializeField] float objRotateSpeed = 20f;
 
 	[SerializeField] LayerMask layerMask;
-    [SerializeField] Transform playerHand;
+	[SerializeField] Transform playerHand;
 
-    void Update()
+	void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask))
-            {
-                PickupItem(hit.transform.gameObject);
-                return;
-            }
+			if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance, layerMask))
+			{
+				PickupItem(hit.transform.gameObject);
+				return;
+			}
 		}
 
 		if (Input.GetMouseButtonUp(0))
 		{
-            if (base.pickedUpObject)
-            {
-                Throw();
-                return;
-            }
+			if (base.pickedUpObject)
+			{
+				Throw();
+				return;
+			}
 		}
 
 		if (Input.GetMouseButton(2))
@@ -35,34 +35,49 @@ public class ObjectMover : BaseMotion
 			return;
 		}
 
-        if (base.pickedUpObject)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                throwStrength += 0.1f;
-                if(throwStrength > 1)
-                {
-                    throwStrength = 1;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                throwStrength -= 0.1f;
-                if(throwStrength < 0)
-                {
-                    throwStrength = 0;
-                }
-            }
+		if (base.pickedUpObject)
+		{
+			if (Input.GetMouseButton(1))
+			{
+				if (throwStrength < 1)
+				{
+					throwStrength += Time.deltaTime / 3f;
+				}
+			} else
+			{
+				if (throwStrength > 0)
+				{
+					throwStrength -= Time.deltaTime / 2f;
+				}
+			}
+			throwStrength = Mathf.Clamp(throwStrength, 0, 1);
 
-            throwStrImg.fillAmount = throwStrength;
-        }
+			//if (Input.GetKeyDown(KeyCode.E))
+			//{
+			//	throwStrength += 0.1f;
+			//	if (throwStrength > 1)
+			//	{
+			//		throwStrength = 1;
+			//	}
+			//}
+			//if (Input.GetKeyDown(KeyCode.Q))
+			//{
+			//	throwStrength -= 0.1f;
+			//	if (throwStrength < 0)
+			//	{
+			//		throwStrength = 0;
+			//	}
+			//}
+
+			throwStrImg.fillAmount = throwStrength;
+		}
 	}
 
-    private void FixedUpdate()
-    {
-        if (base.pickedUpObject)
-        {
-            base.pickedUpObject.transform.position = playerHand.position;
-        }
-    }
+	private void FixedUpdate()
+	{
+		if (base.pickedUpObject)
+		{
+			base.pickedUpObject.transform.position = playerHand.position;
+		}
+	}
 }
