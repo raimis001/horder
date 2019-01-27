@@ -32,31 +32,8 @@ public class ObjectSmashingManager : BaseItem
 				collision.collider.GetComponent<ObjectSmashingManager>().SmashItemMesh(true);
 			}
 			itemThrown = false;
-<<<<<<< HEAD
 			}
     }
-
-    public void SmashItemMesh(bool addExplosion)
-    {
-        Debug.Log("Smashing");
-        if (!smashedObj) return;
-
-        Instantiate(smashedObj, transform.position, transform.rotation);
-        if (addExplosion)
-        {
-            foreach (Transform item in smashedObj.transform)
-            {
-                item.GetComponent<Rigidbody>().AddForce(Random.Range(-4f, 4f), Random.Range(-4f, 4f), Random.Range(-4f, 4f), ForceMode.Impulse);
-            }
-        }
-				if (sound) sound.Play();
-
-				Destroy(gameObject);
-    }
-=======
-
-		}
-	}
 
 	public void SmashItemMesh(bool addExplosion)
 	{
@@ -76,5 +53,4 @@ public class ObjectSmashingManager : BaseItem
 
 		Destroy(gameObject);
 	}
->>>>>>> b58b24e0fa70824abe82942b0790e865f36696fc
 }
