@@ -20,6 +20,7 @@ public class ObjectSmashingManager : BaseItem
 	{
 		if (itemThrown)
 		{
+			Debug.Log("Collision:" + collision.collider.name);
 			if (GetComponent<Rigidbody>().velocity.magnitude > 2.5f)
 			{
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
