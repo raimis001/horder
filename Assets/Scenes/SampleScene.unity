@@ -575,18 +575,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9141139183206238234}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &425061274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425061273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d08b3b4f061b145929a548a793a64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &425061275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +589,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consoleOutput: {fileID: 1836144580}
   consoleInput: {fileID: 68869698}
+  configCanvas: {fileID: 2007314340}
+--- !u!1 &507478734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9141139182731748126, guid: 8ad948ed6b28dae498878eebeae38643,
+    type: 3}
+  m_PrefabInstance: {fileID: 9141139183206238234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &507478740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507478734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2f2f2c7797c8c4db1968bf3eb1e7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: 0
+  sensitivityX: 15
+  sensitivityY: 15
+  minimumX: -360
+  maximumX: 360
+  minimumY: -60
+  maximumY: 60
+  frameCounter: 20
 --- !u!1 &650079265
 GameObject:
   m_ObjectHideFlags: 0

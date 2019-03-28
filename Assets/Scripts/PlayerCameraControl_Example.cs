@@ -18,9 +18,6 @@ public class PlayerCameraControl_Example : MonoBehaviour {
 
     void Start ()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         InitializeScriptReferences();
     }
 
@@ -36,18 +33,15 @@ public class PlayerCameraControl_Example : MonoBehaviour {
     {
         transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + delta;
 
-        // if (!Cursor.visible)
-        // {
         currentXRotation = Mathf.SmoothDamp(currentXRotation, xRotation, ref xRotationV, smoothDamp);
-            currentYRoatation = Mathf.SmoothDamp(currentYRoatation, yRotation, ref yRoatationV, smoothDamp);
+        currentYRoatation = Mathf.SmoothDamp(currentYRoatation, yRotation, ref yRoatationV, smoothDamp);
 
-            xRotation -= Input.GetAxis("Mouse Y") * Sensitivity;
-            yRotation += Input.GetAxis("Mouse X") * Sensitivity;
+        xRotation -= Input.GetAxis("Mouse Y") * Sensitivity;
+        yRotation += Input.GetAxis("Mouse X") * Sensitivity;
 
-            xRotation = Mathf.Clamp(xRotation, -60, 60);
+        xRotation = Mathf.Clamp(xRotation, -60, 60);
 
-            transform.rotation = Quaternion.Euler(currentXRotation, currentYRoatation, 0);
-            player.transform.localRotation = Quaternion.Euler(0, currentYRoatation, 0);
-        //}
+        transform.rotation = Quaternion.Euler(currentXRotation, currentYRoatation, 0);
+        player.transform.localRotation = Quaternion.Euler(0, currentYRoatation, 0);
     }
 }

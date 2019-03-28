@@ -19,17 +19,19 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		float mH = Input.GetAxis("Horizontal");
-		float mV = Input.GetAxis("Vertical");
-		Vector3 move = Camera.main.transform.rotation * new Vector3(mH, 0, mV) * speed;
-		move.y = rb.velocity.y;
-		rb.velocity = move;
+        if (GameManager.instance.IsGameModeActive())
+        {
+            float mH = Input.GetAxis("Horizontal");
+            float mV = Input.GetAxis("Vertical");
+            Vector3 move = Camera.main.transform.rotation * new Vector3(mH, 0, mV) * speed;
+            move.y = rb.velocity.y;
+            rb.velocity = move;
 
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			rb.AddForce(0, jumpSpeed, 0);
-		}
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(0, jumpSpeed, 0);
+            }
+        }
 	}
 	private void Update()
 	{

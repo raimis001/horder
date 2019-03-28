@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ConsoleManager : MonoBehaviour
 {
-    private bool mouseLocked;
+    private bool isConsoleActive = false;
 
     [SerializeField] Text consoleOutput;
     [SerializeField] InputField consoleInput;
@@ -40,21 +40,38 @@ public class ConsoleManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Init keyword list
+    /// </summary>
     private void PopulateInputKeys()
     {
         inputKeys.Add("set");
     }
+    /// <summary>
+    /// Init parameter list
+    /// </summary>
     private void PopulateParameters()
     {
         configParameters.Add("lootboxDropAmount");
     }
 
+    
+    /// <summary>
+    /// if input contains any predefined key from InputKeys list
+    /// </summary>
+    /// <param name="input"> Input string form UI console </param>
+    /// <returns></returns>
     private bool ContainsKeys(string input)
     {
         string[] potentialKeys = input.Split(' ');
 
         return inputKeys.Contains(potentialKeys[0]);
     }
+    /// <summary>
+    /// if input contains any predefined param from Parameters list
+    /// </summary>
+    /// <param name="input"> Input string form UI console </param>
+    /// <returns></returns>
     private bool ContainsParam(string input)
     {
         string[] potentialParam = input.Split(' ');
@@ -62,8 +79,12 @@ public class ConsoleManager : MonoBehaviour
         return configParameters.Contains(potentialParam[1]);
     }
 
+    /// <summary>
+    /// called on press Enter UI EditField
+    /// </summary>
     public void GetInput()
     {
+        Debug.Log("called");
         string[] lines = consoleContents.ToString().Split(' ');
 
         string input = consoleInput.GetComponent<InputField>().text;
@@ -96,13 +117,13 @@ public class ConsoleManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            mouseLocked = !mouseLocked;
+            isConsoleActive = !isConsoleActive;
+            GameManager.instance.GameInputMode = (isConsoleActive) ?  GameManager.GameInputModeEnum.Console : GameManager.GameInputModeEnum.Play;
 
-            Cursor.lockState = (mouseLocked) ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = mouseLocked;
-            configCanvas.gameObject.SetActive(mouseLocked);
+            consoleInput.GetComponent<InputField>().text = "";
+            configCanvas.gameObject.SetActive(isConsoleActive);
         }
     }
 
